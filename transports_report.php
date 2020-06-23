@@ -181,7 +181,7 @@ $transportsCount = count($transports);
 
 foreach($transports as $transport){
     $isUbojnia = Utils_RecordBrowserCommon::get_record('company', $transport['company']);
-    if($transport['zakupy'] && !isset($isUbojnia['group']['baza_tr'])){
+    if(!isset($isUbojnia['group']['baza_tr'])){
         $copy = clone $objPHPExcel->getSheetByName("template");
         $copy->setTitle($transport['number']);
         $objPHPExcel->addSheet($copy);
@@ -190,7 +190,7 @@ foreach($transports as $transport){
 $page = 1;
 foreach($transports as $transport){
     $isUbojnia = Utils_RecordBrowserCommon::get_record('company', $transport['company']);
-    if($transport['zakupy'] && !isset($isUbojnia['group']['baza_tr'])){
+    if(!isset($isUbojnia['group']['baza_tr'])){
     //page
         $forceNull = false;
         $contact = $rboContacts->get_record($transport['driver_1']);

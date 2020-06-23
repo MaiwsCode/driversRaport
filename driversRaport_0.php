@@ -17,6 +17,8 @@ public function body(){
 
     $this->display_module($tabbed_browser);
 }
+
+
 public function transport(){
     Base_ThemeCommon::install_default_theme($this->get_type());
     $theme = $this->init_module('Base/Theme');
